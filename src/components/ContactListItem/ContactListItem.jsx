@@ -3,18 +3,18 @@ import PropTypes from 'prop-types';
 import css from './ContactListItem.module.css';
 import { MdDeleteForever } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/contactsSlice';
+import { deleteContact } from 'redux/operations';
 
 export const ContactListItem = ({ contact }) => {
-const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-const handleDelete = () => dispatch(deleteContact(contact.id))
+  const handleDelete = () => dispatch(deleteContact(contact.id));
 
   return (
     <li className={css.item}>
       <div className={css.info}>
         <p className={css.text}>{contact.name}</p>
-        <p className={css.number}>{contact.number}</p>
+        <p className={css.number}>{contact.phone}</p>
       </div>
       <button
         className={css.button}
